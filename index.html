@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hacker OS USB Shield</title>
 
-  <!-- Google Font (Optional) -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com"/>
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
@@ -73,7 +73,7 @@
 
     /* Product Image */
     .product-image {
-      max-width: 60%;
+      max-width: 100%;
       height: auto;
       margin-top: 2rem;
       border: 2px solid #34f58b;
@@ -97,6 +97,12 @@
       color: #34f58b;
     }
 
+    section h3 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #2ccb7d;
+    }
+
     section p {
       max-width: 800px;
       margin: 0.5rem auto 1.2rem;
@@ -113,6 +119,17 @@
 
     ul li {
       margin-bottom: 0.5rem;
+    }
+
+    /* Pseudo-code Style */
+    pre {
+      background-color: #1a1f1d;
+      color: #34f58b;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin-bottom: 1rem;
     }
 
     /* ----------- FOOTER ----------- */
@@ -139,27 +156,51 @@
     }
 
     /* ----------- MEDIA QUERIES FOR RESPONSIVENESS ----------- */
-    @media (min-width: 576px) {
+    /* For Small Devices (Phones) */
+    @media (max-width: 575px) {
       header h1 {
-        font-size: 2.8rem;
+        font-size: 2rem;
       }
       header p {
+        font-size: 1rem;
+      }
+      .product-image {
+        max-width: 80%;
+      }
+      section h2 {
+        font-size: 1.8rem;
+      }
+      section h3 {
         font-size: 1.3rem;
+      }
+      section p {
+        font-size: 0.9rem;
+      }
+      ul {
+        padding-left: 1rem;
       }
     }
 
-    @media (min-width: 768px) {
+    /* For Medium Devices (Tablets) */
+    @media (min-width: 576px) and (max-width: 768px) {
       header h1 {
-        font-size: 3rem;
+        font-size: 2.4rem;
       }
       header p {
+        font-size: 1.1rem;
+      }
+      section h2 {
+        font-size: 2rem;
+      }
+      section h3 {
         font-size: 1.4rem;
       }
       section p {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
 
+    /* For Large Devices (Desktops) */
     @media (min-width: 992px) {
       .product-image {
         max-width: 40%;
@@ -174,12 +215,7 @@
   <header>
     <h1>Welcome to the Future of Digital Security</h1>
     <p>Hacker OS USB Shield – Redefining Privacy, Security, and Freedom</p>
-    <!-- Replace with your actual product image URL or file -->
-    <img
-      src="usbmodle.jpg.png"
-      alt="Hacker OS USB Shield"
-      class="product-image"
-    />
+    <img src="usbmodle.jpg.png" alt="Hacker OS USB Shield" class="product-image" />
   </header>
 
   <!-- MAIN CONTENT -->
@@ -197,87 +233,64 @@
       </p>
     </section>
 
-    <!-- OUR GAME-CHANGER -->
-    <section id="game-changer">
-      <h2>Our Game-Changer: Hacker OS USB Shield</h2>
+    <!-- TECHNICAL OVERVIEW -->
+    <section id="technical-overview">
+      <h2>Technical Overview</h2>
       <p>
-        Imagine a device so powerful, it makes you invisible online, 
-        untouchable by hackers, and secure from every digital threat—all
-        without changing the way you use your computer. The Hacker OS USB Shield
-        is not just another tool; it’s a revolutionary leap forward in 
-        privacy and security technology.
+        The Hacker OS USB Shield combines cutting-edge hardware and software to create a portable, secure, and anonymous computing environment.
+        Here's how the technology works:
       </p>
-      <p><strong>Key Differentiators:</strong></p>
+
+      <h3>Hardware</h3>
       <ul>
-        <li><strong>100% Plug-and-Play</strong>: No complex setup, just plug it in and unlock a secure, anonymous virtual workspace.</li>
-        <li><strong>Absolute Privacy</strong>: All your activity is routed through secure VPNs and Tor, leaving zero digital footprints.</li>
-        <li><strong>Rock-Solid Security</strong>: Sandboxed from your system, protected by an unbreakable shield of encryption and firewalls.</li>
-        <li><strong>Undetectable &amp; Ephemeral</strong>: Removes all traces of usage when unplugged—no evidence left behind.</li>
+        <li><strong>Raspberry Pi Zero 2 W:</strong> Powers the secure environment with lightweight Linux-based Hacker OS.</li>
+        <li><strong>USB Drives:</strong> Dual storage:
+          <ul>
+            <li>SanDisk USB for bootable OS.</li>
+            <li>Samsung USB for encrypted persistent storage.</li>
+          </ul>
+        </li>
+        <li><strong>Arduino:</strong> Provides hardware-backed authentication and tamper detection.</li>
+        <li><strong>MicroSD Card:</strong> Stores the OS image for the Raspberry Pi.</li>
       </ul>
+
+      <h3>Software</h3>
+      <ul>
+        <li><strong>Operating System:</strong> Debian Minimal with hardened kernel (AppArmor/SELinux).</li>
+        <li><strong>Anonymity Tools:</strong> Integrated Tor and OpenVPN for layered privacy.</li>
+        <li><strong>Encryption:</strong> Full-disk encryption (LUKS) on the secondary USB for secure data storage.</li>
+        <li><strong>Firewall:</strong> Configured zero-trust firewall with advanced rules for untraceable network activity.</li>
+      </ul>
+
+      <h3>Security Features</h3>
+      <ul>
+        <li><strong>RAM-Based Operation:</strong> Runs entirely in memory, leaving no traces on the host system.</li>
+        <li><strong>Sandboxing:</strong> Isolates all apps to prevent cross-contamination or data leakage.</li>
+        <li><strong>Secure Updates:</strong> All updates are downloaded via Tor and verified with GPG signatures.</li>
+        <li><strong>Self-Destruction:</strong> Automatically clears all temporary data when unplugged.</li>
+      </ul>
+
+      <h3>How It Works: Behind the Scenes</h3>
+      <pre>
+# 1. Bootloader initializes secure OS from USB
+# 2. OS loads into RAM and mounts encrypted partitions
+# 3. Network traffic is routed through Tor/VPN
+# 4. Sandbox isolates apps, preventing system compromise
+# 5. Temporary data is wiped on shutdown
+      </pre>
+      <p style="font-style: italic;">For advanced users, the source code will be made available soon on GitHub.</p>
     </section>
 
-    <!-- WHY THIS MATTERS -->
-    <section id="why-it-matters">
-      <h2>Why This Matters</h2>
-      <p>
-        <strong>For Individuals:</strong> Stay safe from identity theft, hackers, and intrusive surveillance.
-        Whether you’re working remotely, browsing, or communicating, Hacker OS USB Shield has you covered.
-      </p>
-      <p>
-        <strong>For Businesses:</strong> Protect sensitive data and empower employees with a portable,
-        secure computing environment—anywhere in the world.
-      </p>
-      <p>
-        <strong>For the World:</strong> In a time where digital freedom is under constant threat, we
-        are giving people the power to take back control.
-      </p>
-    </section>
-
-    <!-- A VISION OF THE FUTURE -->
-    <section id="future-vision">
-      <h2>A Vision of the Future</h2>
-      <p>
-        Our goal isn’t just to create a product—it’s to spark a movement. By combining top-tier cybersecurity
-        tools with an intuitive, portable design, Hacker OS USB Shield is the first step in making advanced
-        security accessible to all. This is the future of cybersecurity, and you’re invited to be part of the revolution.
-      </p>
-    </section>
-
-    <!-- MEET THE MINDS BEHIND THE SHIELD -->
-    <section id="team">
-      <h2>Meet the Minds Behind the Shield</h2>
-      <p>
-        Led by innovators at Emrald, we are a team of tech enthusiasts, cybersecurity experts, 
-        and privacy advocates dedicated to reshaping how the world views digital safety. 
-        Our backgrounds span ethical hacking, advanced encryption technologies, and secure 
-        system design—all united under one goal: empowering you.
-      </p>
-    </section>
-
-    <!-- JOIN THE REVOLUTION -->
-    <section id="join-us">
-      <h2>Join the Revolution</h2>
-      <p>
-        The era of vulnerable systems and exposed data is over. Take the first step toward a safer, 
-        freer digital future. The Hacker OS USB Shield is not just a product—it’s your key to complete control.
-      </p>
-      <p style="font-weight: 700; color: #34f58b;">
-        Coming Soon! Stay tuned for release updates.
-      </p>
-    </section>
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2024 Emrald. All Rights Reserved.</p>
+      <div class="social-links">
+        <a href="https://x.com/emraldoffical?s=11" target="_blank">Twitter</a>
+        <a href="https://github.com/skyla643" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/skylamirandareyes-a99b781b4/" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
 
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2024 Emrald. All Rights Reserved.</p>
-    <!-- SOCIAL MEDIA LINKS -->
-    <div class="social-links">
-      <a href="https://x.com/emraldoffical?s=11" target="_blank">Twitter</a>
-      <a href="https://github.com/skyla643" target="_blank">Github</a>
-      <a href="https://www.linkedin.com/in/skylamirandareyes-a99b781b4/" target="_blank">LinkedIn</a>
-    </div>
-  </footer>
-
 </body>
 </html>
