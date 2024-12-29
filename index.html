@@ -14,7 +14,9 @@
 
   <style>
     /* ----------- GLOBAL STYLES ----------- */
-    * {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -52,6 +54,7 @@
       background: linear-gradient(90deg, #0b0f0d 0%, #1a1f1d 100%);
       padding: 4rem 2rem;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -66,24 +69,6 @@
       margin-bottom: 2rem;
       max-width: 800px;
       margin: 0.5rem auto 2rem;
-    }
-
-    /* Counter Section */
-    .counter {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #f0f0f0;
-      margin-top: 1rem;
-    }
-
-    .counter span {
-      color: #34f58b;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .counter span.updated {
-      transform: scale(1.2);
     }
 
     /* Product Image */
@@ -159,6 +144,7 @@
       margin-bottom: 0.5rem;
     }
 
+    /* SOCIAL ICONS */
     .social-links a {
       margin: 0 0.5rem;
       color: #34f58b;
@@ -175,50 +161,46 @@
       header h1 {
         font-size: 2rem;
       }
-
       header p {
         font-size: 1rem;
       }
-
       .product-image {
         max-width: 80%;
       }
-
       section h2 {
         font-size: 1.8rem;
       }
-
       section h3 {
         font-size: 1.3rem;
       }
-
       section p {
         font-size: 0.9rem;
       }
+      ul {
+        padding-left: 1rem;
+      }
     }
 
+    /* For Medium Devices (Tablets) */
     @media (min-width: 576px) and (max-width: 768px) {
       header h1 {
         font-size: 2.4rem;
       }
-
       header p {
         font-size: 1.1rem;
       }
-
       section h2 {
         font-size: 2rem;
       }
-
       section h3 {
         font-size: 1.4rem;
       }
-
       section p {
         font-size: 1rem;
       }
     }
 
+    /* For Large Devices (Desktops) */
     @media (min-width: 992px) {
       .product-image {
         max-width: 40%;
@@ -228,13 +210,11 @@
 </head>
 
 <body>
+
   <!-- HERO / HEADER -->
   <header>
     <h1>Welcome to the Future of Digital Security</h1>
     <p>Hacker OS USB Shield – Redefining Privacy, Security, and Freedom</p>
-    <div class="counter">
-      Users Watching the Revolution: <span id="viewCounter">0</span>
-    </div>
     <img src="usbmodle.jpg.png" alt="Hacker OS USB Shield" class="product-image" />
   </header>
 
@@ -312,24 +292,5 @@
     </footer>
 
   </div>
-
-  <script>
-    // Initialize or Update the View Counter
-    const counterElement = document.getElementById("viewCounter");
-    let views = localStorage.getItem("pageViews");
-
-    if (views) {
-      views = parseInt(views) + 1;
-    } else {
-      views = 1; // First visit
-    }
-
-    localStorage.setItem("pageViews", views);
-    counterElement.textContent = views;
-
-    // Add animation class for visual feedback
-    counterElement.classList.add('updated');
-    setTimeout(() => counterElement.classList.remove('updated'), 300);
-  </script>
 </body>
 </html>
